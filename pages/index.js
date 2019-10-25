@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import DefaultLayout from '../components/layout/DefaultLayout';
-import BannerComponent from '../components/BannerComponent';
 import { useQuery } from "graphql-hooks";
 import { handleGraphQLAPIErrors } from "../utils/helpers";
 
