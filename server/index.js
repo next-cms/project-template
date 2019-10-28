@@ -1,6 +1,8 @@
 const express = require("express");
 const next = require("next");
 const dotenv = require("dotenv");
+const request = require("request");
+const bodyParser = require("body-parser");
 
 dotenv.config();
 
@@ -42,12 +44,39 @@ function setupFavicon(server) {
     ));
 }
 
+function handleRedirect(req, res) {
+
+    console.log(req.originalUrl);
+
+    const options = {
+        method: req.method,
+        url: `${process.env.ADMIN_API_BASE_URL}${req.originalUrl.replace(/^\/api/, "")}`,
+        headers: {
+            ...req.headers,
+            "CLIENT-ID": process.env.CLIENT_ID,
+        },
+        body: JSON.stringify(req.body)
+    };
+
+    request(options, function (error, response, body) {
+        if (error) res.status(403).send(error);
+        console.log("error:", error); // Print the error if one occurred
+        console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
+        console.log("body:", body);
+        res.set(response.headers);
+        res.send(body);
+    });
+}
+
 app.prepare().then(() => {
     const server = express();
 
     setupRobotsTXT(server);
     setupSiteMapXML(server);
     setupFavicon(server);
+
+    server.use(bodyParser.json());
+    server.use("/api/*", handleRedirect);
 
     server.get("*", (req, res) => {
         return handle(req, res);
