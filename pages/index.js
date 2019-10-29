@@ -20,24 +20,23 @@ query dataObjectsBySlug($projectId: String!, $slug: String!) {
 }`;
 
 const Home = () => {
-    // const projectId = process.env.PROJECT_ID;
-    // // const router = useRouter();
+    const projectId = process.env.PROJECT_ID || "5da060c61eda6430cc4c4e4d";
+    // const router = useRouter();
 
-    // const {loading, error, data, refetch} = useQuery(DATA_OBJECT, {
-    //     variables: {projectId, slug: "home"},
-    //     skipCache: true
-    // });
+    const {loading, error, data, refetch} = useQuery(DATA_OBJECT, {
+        variables: {projectId, slug: "home"}
+    });
 
-    // useEffect(() => {
-    //     if (error) {
-    //         handleGraphQLAPIErrors(error);
-    //     }
-    // }, [error]);
+    useEffect(() => {
+        if (error) {
+            handleGraphQLAPIErrors(error);
+        }
+    }, [error]);
 
-    // if (error || !data) return null;
-    // const { dataObjectsBySlug } = data;
+    if (error || !data) return null;
+    const { dataObjectsBySlug } = data;
 
-    // if (loading) return null;
+    if (loading) return null;
 
     return (
         <DefaultLayout className="layout">
