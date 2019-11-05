@@ -7,7 +7,7 @@
     background: #FFFFFF;
     position: fixed;
     top: 0;
-    border-top: 5px solid #F9F5EE;
+    /*border-top: 5px solid #F9F5EE;*/
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
