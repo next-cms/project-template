@@ -62,10 +62,6 @@ const Header = () => {
     return (
 
         <Layout.Header id="header" className="header">
-            <Head>
-                <link rel="stylesheet"
-                    href="https://fonts.googleapis.com/css?family=Montserrat" />
-            </Head>
             <div className="header-contents" style={{}}>
                 <Icon type="menu" className="toggle-menu-icon" />
                 <div id="logo" className="logo"><img src="/static/logo.png" /></div>

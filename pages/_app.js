@@ -46,6 +46,10 @@ class CMSApp extends App {
 
         return (
             <React.Fragment>
+                <Head>
+                    <link rel="stylesheet"
+                          href="https://fonts.googleapis.com/css?family=Montserrat" />
+                </Head>
                 <ClientContext.Provider value={graphQLClient}>
                     <Component {...pageProps} />
                 </ClientContext.Provider>
