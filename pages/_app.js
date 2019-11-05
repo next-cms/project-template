@@ -5,6 +5,7 @@ import { ClientContext } from "graphql-hooks";
 import withGraphQLClient from "../utils/withGraphQLClient";
 import Router from "next/router";
 import NProgress from "nprogress";
+import Head from "next/head";
 
 NProgress.configure({parent: "#__next", trickleSpeed: 400});
 

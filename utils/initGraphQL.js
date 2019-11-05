@@ -13,7 +13,7 @@ function create(initialState, token) {
             "CLIENT-ID": process.env.CLIENT_ID
         },
         ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
-        url: `${process.env.API_BASE_URL}/${process.env.GRAPHQL_PATH}`, // Server URL (must be absolute)
+        url: `${process.env.API_BASE_URL}${process.env.GRAPHQL_PATH}`, // Server URL (must be absolute)
         fetch: typeof window !== "undefined" ? fetch.bind() : unfetch, // eslint-disable-line
         cache: memCache({initialState}),
         onError: ({operation, result}) => {
