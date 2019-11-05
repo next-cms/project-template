@@ -35,8 +35,6 @@ module.exports = withCss({
     webpack: webpackConfig,
     env: {
         API_BASE_URL: process.env.API_BASE_URL,
-        GRAPHQL_PATH: process.env.GRAPHQL_PATH,
-        PROJECT_ID: process.env.PROJECT_ID,
-        CLIENT_ID: process.env.CLIENT_ID
+        GRAPHQL_PATH: process.env.GRAPHQL_PATH
     },
 });

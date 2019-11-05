@@ -53,6 +53,7 @@ function handleRedirect(req, res) {
         url: `${process.env.ADMIN_API_BASE_URL}${req.originalUrl.replace(/^\/api/, "")}`,
         headers: {
             ...req.headers,
+            "PROJECT-ID": process.env.PROJECT_ID,
             "CLIENT-ID": process.env.CLIENT_ID,
         },
         body: JSON.stringify(req.body)

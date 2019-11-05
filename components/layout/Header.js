@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
-import { Icon, Layout, Menu } from 'antd';
+import React, {useEffect} from 'react';
+import {Icon, Layout, Menu} from 'antd';
 import Link from 'next/link';
-import Head from 'next/head';
-import { useQuery } from 'graphql-hooks';
-import { handleGraphQLAPIErrors } from '../../utils/helpers';
 
 const GET_SINGLE_MENU = `query getSingleMenuFromProjectById($projectId: String!, $id: String!) {
     getSingleMenuFromProjectById(projectId: $projectId , id: $id) {
@@ -63,8 +60,11 @@ const Header = () => {
 
         <Layout.Header id="header" className="header">
             <div className="header-contents" style={{}}>
-                <Icon type="menu" className="toggle-menu-icon" />
-                <div id="logo" className="logo"><img src="/static/logo.png" /></div>
+                <Icon type="menu" className="toggle-menu-icon"/>
+                <div id="logo" className="logo">
+                    <img src="/static/logo.png"/>
+                    <span>Logo</span>
+                </div>
 
                 <Menu
                     theme="dark"
@@ -75,22 +75,22 @@ const Header = () => {
 
                     <Menu.Item className="menu-item" key="1">
                         Projekt/tidplan
-                        <Link href="/"><a /></Link>
+                        <Link href="/"><a/></Link>
                     </Menu.Item>
                     <Menu.Item className="menu-item" key="2">
                         Bilder/Skisser
-                        <Link href="/bilderskisser"><a /></Link>
+                        <Link href="/bilderskisser"><a/></Link>
                     </Menu.Item>
                     <Menu.Item className="menu-item" key="3">
                         fakta lokaler
-                        <Link href="/fakta-lokaler"><a /></Link>
+                        <Link href="/fakta-lokaler"><a/></Link>
                     </Menu.Item>
                     <Menu.Item className="menu-item" key="4">
                         ekonomi/status
-                        <Link href="/ekonomistatus"><a /></Link>
+                        <Link href="/ekonomistatus"><a/></Link>
                     </Menu.Item>
                     <Menu.Item className="menu-item" key="5">kontakt
-                        <Link href="/kontakt"><a /></Link>
+                        <Link href="/kontakt"><a/></Link>
                     </Menu.Item>
                 </Menu>
 
