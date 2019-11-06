@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import DefaultLayout from '../components/layout/DefaultLayout';
+import DefaultLayout from '../components/layouts/DefaultLayout';
 import { useQuery } from "graphql-hooks";
 import { handleGraphQLAPIErrors } from "../utils/helpers";
 
